@@ -10,7 +10,7 @@
 <?rfc colonspace="yes" ?>
 <?rfc rfcedstyle="no" ?>
 <?rfc tocdepth="4"?>
-<rfc category="std" docName="draft-ietf-rtcweb-ip-handling-10"
+<rfc category="std" docName="draft-ietf-rtcweb-ip-handling-11"
 ipr="trust200902">
   <front>
     <title abbrev="WebRTC IP Handling">WebRTC IP Address Handling
@@ -28,7 +28,7 @@ ipr="trust200902">
         <email>justin@uberti.name</email>
       </address>
     </author>
-    <date day="12" month="October" year="2018" />
+    <date day="2" month="November" year="2018" />
     <area>RAI</area>
     <abstract>
 
@@ -52,16 +52,18 @@ ipr="trust200902">
     </section>
     <section title="Terminology">
 
-      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-      document are to be interpreted as described in
-      <xref target="RFC2119"></xref>.</t>
+      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+      "MAY", and "OPTIONAL" in this document are to be interpreted as
+      described in BCP 14 <xref target="RFC2119"></xref>
+      <xref target="RFC8174"></xref> when, and only when, they
+      appear in all capitals, as shown here.</t>
     </section>
     <section title="Problem Statement">
 
       <t>In order to establish a peer-to-peer connection, WebRTC implementations
       use Interactive Connectivity Establishment (ICE)
-      <xref target="RFC5245" />, which attempts to discover
+      <xref target="RFC8445" />, which attempts to discover
       multiple IP addresses using techniques such as
       Session Traversal Utilities for NAT (STUN) <xref target="RFC5389" /> and
       Traversal Using Relays around NAT (TURN) <xref target="RFC5766" />,
@@ -262,7 +264,7 @@ ipr="trust200902">
         indicates they want all WebRTC traffic to follow the default route.
         </t>
 
-        <t>Future versions of this document may define additional modes and/or
+        <t>Future documents may define additional modes and/or
         update the recommended default modes.</t>
 
         <t>Note that the suggested defaults can still be used even for
@@ -350,23 +352,29 @@ ipr="trust200902">
   <back>
     <references title="Normative References">
       <?rfc include='reference.RFC.2119.xml'?>
-      </references>
+      <?rfc include='reference.RFC.3986.xml'?>
+      <?rfc include='reference.RFC.8089.xml'?>
+      <?rfc include='reference.RFC.8174.xml'?>
+      <?rfc include='reference.RFC.8445.xml'?>
+    </references>
     <references title="Informative References">
       <?rfc include='reference.RFC.1918.xml'?>
       <?rfc include='reference.RFC.1919.xml'?>
       <?rfc include='reference.RFC.1928.xml'?>
-      <?rfc include='reference.RFC.3986.xml'?>
       <?rfc include='reference.RFC.4941.xml'?>
-      <?rfc include='reference.RFC.5245.xml'?>
       <?rfc include='reference.RFC.5389.xml'?>
       <?rfc include='reference.RFC.5766.xml'?>
       <?rfc include='reference.RFC.7016.xml'?>
       <?rfc include='reference.RFC.7230.xml'?>
       <?rfc include='reference.RFC.7478.xml'?>
-      <?rfc include='reference.RFC.8089.xml'?>
       <?rfc include='reference.I-D.ietf-rtcweb-transports'?>
       </references>
     <section title="Change log">
+      <t>Changes in draft -11:
+      <list style="symbols">
+
+        <t>Editorial updates from AD review.</t>
+      </list></t>
       <t>Changes in draft -10:
       <list style="symbols">
 
