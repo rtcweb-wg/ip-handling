@@ -109,24 +109,27 @@ ipr="trust200902">
       VPN users) may in fact prefer WebRTC to send media traffic directly,
       i.e., not through the VPN.</t>
 
-      <t>#2 is a less significant but valid concern. While the
-      <xref target="RFC4941" /> IPv6 addresses recommended by
-      <xref target="I-D.ietf-rtcweb-transports" /> are fairly benign due to
-      their intentionally short lifetimes, IPv4 addresses present some
-      challenges. Although they typically contain minimal entropy (e.g.,
-      192.168.0.2, a fairly common address), in the worst case, they can
-      contain 24 bits of entropy with an indefinite lifetime. As such, they can
-      be a fairly significant fingerprinting surface. In addition, intranet web
-      sites can be attacked more easily when their IPv4 address range is
-      externally known.</t>
+      <t>#2 is a less significant but nonetheless valid concern. The core
+      issue is that web applications can learn about addresses that are not
+      exposed to the internet; typically these address are IPv4, but they can
+      also be IPv6, as in the case of NAT64 <xref target="RFC6146" />.
+      While disclosure of the <xref target="RFC4941" /> IPv6 addresses
+      recommended by <xref target="I-D.ietf-rtcweb-transports" /> is fairly
+      benign due to their intentionally short lifetimes, IPv4 addresses present
+      some challenges. Although private IPv4 addresses often contain minimal
+      entropy (e.g., 192.168.0.2, a fairly common address), in the worst case,
+      they can contain 24 bits of entropy with an indefinite lifetime. As such,
+      they can be a fairly significant fingerprinting surface. In addition,
+      intranet web sites can be attacked more easily when their IPv4 address
+      range is externally known.</t>
 
-      <t>Private local IP addresses can also act as an identifier that allows
+      <t>Private IP addresses can also act as an identifier that allows
       web applications running in isolated browsing contexts (e.g., normal and
       private browsing) to learn that they are running on the same device. This
       could allow the application sessions to be correlated, defeating some of
       the privacy protections provided by isolation. It should be noted that
-      local addresses are just one potential mechanism for this correlation and
-      this is an area for further study.</t>
+      private addresses are just one potential mechanism for this correlation
+      and this is an area for further study.</t>
 
       <t>#3 is the least common concern, as proxy administrators can already
       control this behavior through organizational firewall policy, and
@@ -356,6 +359,7 @@ ipr="trust200902">
       <?rfc include='reference.RFC.4941.xml'?>
       <?rfc include='reference.RFC.5389.xml'?>
       <?rfc include='reference.RFC.5766.xml'?>
+      <?rfc include='reference.RFC.6146.xml'?>
       <?rfc include='reference.RFC.7016.xml'?>
       <?rfc include='reference.RFC.7230.xml'?>
       <?rfc include='reference.RFC.7478.xml'?>
