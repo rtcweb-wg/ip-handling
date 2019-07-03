@@ -134,7 +134,8 @@ ipr="trust200902">
       negative effects on both the proxy and on media quality.</t>
 
       <t>Note also that these concerns predate WebRTC; Adobe Flash Player has
-      provided similar functionality since the introduction of RTMFP
+      provided similar functionality since the introduction of Real-Time
+      Media Flow Protocol (RTMFP) support
       <xref target="RFC7016" /> in 2008.</t>
     </section>
     <section title="Goals">
@@ -236,7 +237,7 @@ ipr="trust200902">
           proxy server.</t>
         </list></t>
 
-        <t>Mode 1 MUST only be used when user consent has been provided. The
+        <t>Mode 1 MUST NOT be used unless user consent has been provided. The
         details of this consent are left to the implementation; one potential
         mechanism is to tie this consent to getUserMedia consent.
         Alternatively, implementations can provide a specific mechanism to
@@ -345,6 +346,8 @@ ipr="trust200902">
     <references title="Normative References">
       <?rfc include='reference.RFC.2119.xml'?>
       <?rfc include='reference.RFC.3986.xml'?>
+      <?rfc include='reference.RFC.5389.xml'?>
+      <?rfc include='reference.RFC.5766.xml'?>
       <?rfc include='reference.RFC.8089.xml'?>
       <?rfc include='reference.RFC.8174.xml'?>
       <?rfc include='reference.RFC.8445.xml'?>
@@ -354,8 +357,6 @@ ipr="trust200902">
       <?rfc include='reference.RFC.1919.xml'?>
       <?rfc include='reference.RFC.1928.xml'?>
       <?rfc include='reference.RFC.4941.xml'?>
-      <?rfc include='reference.RFC.5389.xml'?>
-      <?rfc include='reference.RFC.5766.xml'?>
       <?rfc include='reference.RFC.7016.xml'?>
       <?rfc include='reference.RFC.7230.xml'?>
       <?rfc include='reference.RFC.7478.xml'?>
