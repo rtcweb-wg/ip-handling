@@ -274,7 +274,7 @@ ipr="trust200902">
       <section title="Ensuring Normal Routing">
 
         <t>When trying to follow typical IP routing, the simplest approach is
-        to bind the sockets used for peer-to-peer connections to the wildcard
+        to bind() the sockets used for peer-to-peer connections to the wildcard
         addresses (0.0.0.0 for IPv4, :: for IPv6), which allows the OS to route
         WebRTC traffic the same way as it would HTTP traffic. STUN and TURN
         will work as usual, and host candidates can still be determined as
@@ -300,9 +300,9 @@ ipr="trust200902">
         address.</t>
 
         <t>Once a suitable remote IP has been determined, the implementation
-        can create a UDP socket, bind it to the appropriate wildcard address,
-        and tell it to connect to the remote IP. Generally, this results in the
-        socket being assigned a local address based on the kernel routing
+        can create a UDP socket, bind() it to the appropriate wildcard address,
+        and then connect() to the remote IP. Generally, this results in
+        the socket being assigned a local address based on the kernel routing
         table, without sending any packets over the network.</t>
 
         <t>Finally, the socket can be queried using getsockname() or the
