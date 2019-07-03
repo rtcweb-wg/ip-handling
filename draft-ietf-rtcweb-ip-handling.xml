@@ -239,9 +239,10 @@ ipr="trust200902">
 
         <t>Mode 1 MUST NOT be used unless user consent has been provided. The
         details of this consent are left to the implementation; one potential
-        mechanism is to tie this consent to getUserMedia consent.
-        Alternatively, implementations can provide a specific mechanism to
-        obtain user consent.</t>
+        mechanism is to tie this consent to getUserMedia (device permissions)
+        consent, described in <xref target="I-D.ietf-rtcweb-security-arch" />,
+        Section 6.2. Alternatively, implementations can provide a specific
+        mechanism to obtain user consent.</t>
 
         <t>In cases where user consent has not been obtained, Mode 2 SHOULD be
         used.</t>
@@ -360,6 +361,7 @@ ipr="trust200902">
       <?rfc include='reference.RFC.7016.xml'?>
       <?rfc include='reference.RFC.7230.xml'?>
       <?rfc include='reference.RFC.7478.xml'?>
+      <?rfc include='reference.I-D.ietf-rtcweb-security-arch'?>
       <?rfc include='reference.I-D.ietf-rtcweb-transports'?>
       </references>
     <section title="Change log">
