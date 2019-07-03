@@ -68,9 +68,9 @@ ipr="trust200902">
       <xref target="RFC5766" />, and then checks the connectivity of each
       local-address-remote-address pair in order to select the best one. The
       addresses that are collected usually consist of an endpoint's private
-      physical/virtual addresses and its public Internet addresses.</t>
+      physical or virtual addresses and its public Internet addresses.</t>
 
-      <t>These addresses are exposed upwards to the web application, so that
+      <t>These addresses are provided to the web application so that
       they can be communicated to the remote endpoint for its checks. This
       allows the application to learn more about the local network
       configuration than it would from a typical HTTP scenario, in which the
@@ -103,13 +103,13 @@ ipr="trust200902">
         <xref target="RFC1919" /> proxy server.</t>
       </list></t>
 
-      <t>Of these three concerns, #1 is the most significant, because for some
+      <t>Of these three concerns, the first is the most significant, because for some
       users, the purpose of using a VPN is for anonymity. However, different
       VPN users will have different needs, and some VPN users (e.g., corporate
       VPN users) may in fact prefer WebRTC to send media traffic directly,
       i.e., not through the VPN.</t>
 
-      <t>#2 is a less significant but nonetheless valid concern. The core
+      <t>The second concern is less significant but valid nonetheless. The core
       issue is that web applications can learn about addresses that are not
       exposed to the internet; typically these address are IPv4, but they can
       also be IPv6, as in the case of NAT64 <xref target="RFC6146" />.
@@ -131,7 +131,7 @@ ipr="trust200902">
       private addresses are just one potential mechanism for this correlation
       and this is an area for further study.</t>
 
-      <t>#3 is the least common concern, as proxy administrators can already
+      <t>The third concern is the least common, as proxy administrators can already
       control this behavior through organizational firewall policy, and
       generally, forcing WebRTC traffic through a proxy server will have
       negative effects on both the proxy and on media quality.</t>
@@ -144,9 +144,9 @@ ipr="trust200902">
 
       <t>WebRTC's support of secure peer-to-peer connections facilitates
       deployment of decentralized systems, which can have privacy benefits. As
-      a result, we want to avoid blunt solutions that disable WebRTC or make it
-      significantly harder to use. This document takes a more nuanced approach,
-      with the following goals:
+      a result, blunt solutions that disable WebRTC or make it significantly
+      harder to use are undesirable. This document takes a more nuanced
+      approach, with the following goals:
       <list style="symbols">
 
         <t>Provide a framework for understanding the problem so that controls
@@ -287,10 +287,10 @@ ipr="trust200902">
         <t>When binding to a wildcard address, some extra work is needed to
         determine a suitable host candidate, which we define as the source
         address that would be used for any packets sent to the web application
-        host (assuming that UDP and TCP get the same routing). Use of the web
-        application host as a destination ensures the right source address is
-        selected, regardless of where the application resides (e.g., on an
-        intranet).</t>
+        host (assuming that UDP and TCP get the same routing treatment). Use of
+        the web application host as a destination ensures the right source
+        address is selected, regardless of where the application resides (e.g.,
+        on an intranet).</t>
 
         <t>First, the appropriate remote IPv4/IPv6 address is obtained by
         resolving the host component of the web application URI
@@ -331,7 +331,10 @@ ipr="trust200902">
     </section>
     <section title="Security Considerations">
 
-      <t>This document is entirely devoted to security considerations.</t>
+      <t>This document describes several potential privacy and security concerns
+      associated with WebRTC peer-to-peer connections, and provides mechanisms
+      and recommendations for WebRTC implementations to address these concerns.
+      </t>
     </section>
     <section title="IANA Considerations">
 
