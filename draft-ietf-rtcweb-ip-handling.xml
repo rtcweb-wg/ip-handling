@@ -10,7 +10,7 @@
 <?rfc colonspace="yes" ?>
 <?rfc rfcedstyle="no" ?>
 <?rfc tocdepth="4"?>
-<rfc category="std" docName="draft-ietf-rtcweb-ip-handling-11"
+<rfc category="std" docName="draft-ietf-rtcweb-ip-handling-12"
 ipr="trust200902">
   <front>
     <title abbrev="WebRTC IP Handling">WebRTC IP Address Handling
@@ -28,7 +28,7 @@ ipr="trust200902">
         <email>justin@uberti.name</email>
       </address>
     </author>
-    <date day="2" month="November" year="2018" />
+    <date day="2" month="July" year="2019" />
     <area>RAI</area>
     <abstract>
 
@@ -375,6 +375,11 @@ ipr="trust200902">
       <?rfc include='reference.I-D.ietf-rtcweb-transports'?>
       </references>
     <section title="Change log">
+      <t>Changes in draft -12:
+      <list style="symbols">
+
+        <t>Editorial updates from IETF LC review.</t>
+      </list></t>
 
       <t>Changes in draft -11:
       <list style="symbols">
