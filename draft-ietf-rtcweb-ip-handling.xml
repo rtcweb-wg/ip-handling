@@ -175,9 +175,9 @@ ipr="trust200902">
 
           <t>By default, WebRTC should be able to negotiate direct peer-to-peer
           connections between endpoints (i.e., without traversing a NAT or
-          relay server). This ensures that applications that need true
-          peer-to-peer routing for bandwidth or latency reasons can operate
-          successfully.</t>
+          relay server) when such connections are possible. This ensures that
+          applications that need true peer-to-peer routing for bandwidth or
+          latency reasons can operate successfully.</t>
 
           <t>It should be possible to configure WebRTC to not disclose private
           local IP addresses, to avoid the issues associated with web
