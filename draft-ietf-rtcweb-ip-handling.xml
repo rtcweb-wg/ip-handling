@@ -137,7 +137,8 @@ ipr="trust200902">
       negative effects on both the proxy and on media quality.</t>
 
       <t>Note also that these concerns predate WebRTC; Adobe Flash Player has
-      provided similar functionality since the introduction of RTMFP
+      provided similar functionality since the introduction of Real-Time
+      Media Flow Protocol (RTMFP) support
       <xref target="RFC7016" /> in 2008.</t>
     </section>
     <section title="Goals">
@@ -178,9 +179,9 @@ ipr="trust200902">
 
           <t>By default, WebRTC should be able to negotiate direct peer-to-peer
           connections between endpoints (i.e., without traversing a NAT or
-          relay server). This ensures that applications that need true
-          peer-to-peer routing for bandwidth or latency reasons can operate
-          successfully.</t>
+          relay server) when such connections are possible. This ensures that
+          applications that need true peer-to-peer routing for bandwidth or
+          latency reasons can operate successfully.</t>
 
           <t>It should be possible to configure WebRTC to not disclose private
           local IP addresses, to avoid the issues associated with web
@@ -239,11 +240,12 @@ ipr="trust200902">
           proxy server.</t>
         </list></t>
 
-        <t>Mode 1 MUST only be used when user consent has been provided. The
+        <t>Mode 1 MUST NOT be used unless user consent has been provided. The
         details of this consent are left to the implementation; one potential
-        mechanism is to tie this consent to getUserMedia consent.
-        Alternatively, implementations can provide a specific mechanism to
-        obtain user consent.</t>
+        mechanism is to tie this consent to getUserMedia (device permissions)
+        consent, described in <xref target="I-D.ietf-rtcweb-security-arch" />,
+        Section 6.2. Alternatively, implementations can provide a specific
+        mechanism to obtain user consent.</t>
 
         <t>In cases where user consent has not been obtained, Mode 2 SHOULD be
         used.</t>
@@ -276,7 +278,7 @@ ipr="trust200902">
       <section title="Ensuring Normal Routing">
 
         <t>When trying to follow typical IP routing, the simplest approach is
-        to bind the sockets used for peer-to-peer connections to the wildcard
+        to bind() the sockets used for peer-to-peer connections to the wildcard
         addresses (0.0.0.0 for IPv4, :: for IPv6), which allows the OS to route
         WebRTC traffic the same way as it would HTTP traffic. STUN and TURN
         will work as usual, and host candidates can still be determined as
@@ -302,9 +304,9 @@ ipr="trust200902">
         address.</t>
 
         <t>Once a suitable remote IP has been determined, the implementation
-        can create a UDP socket, bind it to the appropriate wildcard address,
-        and tell it to connect to the remote IP. Generally, this results in the
-        socket being assigned a local address based on the kernel routing
+        can create a UDP socket, bind() it to the appropriate wildcard address,
+        and then connect() to the remote IP. Generally, this results in
+        the socket being assigned a local address based on the kernel routing
         table, without sending any packets over the network.</t>
 
         <t>Finally, the socket can be queried using getsockname() or the
@@ -351,6 +353,8 @@ ipr="trust200902">
     <references title="Normative References">
       <?rfc include='reference.RFC.2119.xml'?>
       <?rfc include='reference.RFC.3986.xml'?>
+      <?rfc include='reference.RFC.5389.xml'?>
+      <?rfc include='reference.RFC.5766.xml'?>
       <?rfc include='reference.RFC.8089.xml'?>
       <?rfc include='reference.RFC.8174.xml'?>
       <?rfc include='reference.RFC.8445.xml'?>
@@ -366,6 +370,7 @@ ipr="trust200902">
       <?rfc include='reference.RFC.7016.xml'?>
       <?rfc include='reference.RFC.7230.xml'?>
       <?rfc include='reference.RFC.7478.xml'?>
+      <?rfc include='reference.I-D.ietf-rtcweb-security-arch'?>
       <?rfc include='reference.I-D.ietf-rtcweb-transports'?>
       </references>
     <section title="Change log">
