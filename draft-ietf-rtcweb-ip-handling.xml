@@ -70,12 +70,12 @@ the title) for use on https://www.rfc-editor.org/search. -->
       <name>Problem Statement</name>
       <t>In order to establish a peer-to-peer connection, WebRTC
       implementations use Interactive Connectivity Establishment (ICE)
-      <xref target="RFC8445" format="default"/>, which attempts to discover multiple IP
+      <xref target="RFC8445" format="default"/>. ICE attempts to discover multiple IP
       addresses using techniques such as Session Traversal Utilities for NAT
       (STUN)
       <xref target="RFC5389" format="default"/> and Traversal Using Relays
       around NAT (TURN)
-      <xref target="RFC5766" format="default"/>. It then checks the
+      <xref target="RFC5766" format="default"/>, and then checks the
       connectivity of each
       local-address-remote-address pair in order to select the best one. The
       addresses that are collected usually consist of an endpoint's private
@@ -87,7 +87,7 @@ the title) for use on https://www.rfc-editor.org/search. -->
       web server would only see a single public Internet address, i.e., the
       address from which the HTTP request was sent.</t>
 
-      <t>The information revealed falls into one of three categories:
+      <t>The additional information revealed falls into three categories:
       </t>
       <ol spacing="normal" type="1">
         <li>If the client is multihomed, additional public IP addresses for the
